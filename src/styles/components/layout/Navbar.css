@@ -17,16 +17,24 @@
 }
 
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--navbar-bg-color);
-  padding: 10px;
-  border-bottom: 0.05px solid var(--darkgrey-color);
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 0.05px solid var(--green-text);
+}
+.nav-header-text {
+  color: var(--black-color);
+}
+.highlight-name {
+  color: var(--green-text); /* Replace with your desired color */
+  font-weight: bold; /* Optional: make the name bold */
 }
 
 .scrollNav {
   display: flex;
-  width: 80%; /* Fixed width for the scrollable area */
+  width: 100%; /* Fixed width for the scrollable area */
   overflow-x: auto; /* Enable horizontal scrolling */
   white-space: nowrap; /* Prevent wrapping of flex items */
   background-color: var(--navbar-bg-color);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/pages/auth/ForgetPassword.css";
-
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import leaf from "../../assets/images/leaf.png";
 import mainsplash from "../../assets/images/mainsplash.png";
 
@@ -8,26 +8,21 @@ import mainsplash from "../../assets/images/mainsplash.png";
 import MainButton from "../../components/common/MainButton";
 
 const OTPScreen: React.FC = () => {
-  const [email, setEmail] = useState("");
+  const [otp, setOTP] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
+  const handleOTPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setOTP(e.target.value); // Update OTP state
   };
 
-  const isValidEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-
-  const handleSignUpClick = () => {
-    if (!isValidEmail(email)) {
-      setErrorMessage("Your email is not correct.");
-      return;
+  const handleConfirmClick = () => {
+    // You can add OTP validation logic here if needed
+    if (otp) {
+      navigate("/dashboard/OnBoarding"); // Navigate to dashboard on button click
+    } else {
+      setErrorMessage("Please enter a valid OTP"); // Set error message if OTP is empty
     }
-
-    setErrorMessage("");
-    window.location.href = "/forgetchangepassword";
   };
 
   return (
@@ -46,8 +41,8 @@ const OTPScreen: React.FC = () => {
               className="input-field"
               type="email"
               placeholder="OTP"
-              value={email}
-              onChange={handleEmailChange}
+              value={otp}
+              onChange={handleOTPChange} // Use handleOTPChange for input change
             />
             <div className="seconds">44s</div>
           </div>
@@ -56,7 +51,7 @@ const OTPScreen: React.FC = () => {
               Resend code
             </a>
           </div>
-          <MainButton onClick={handleSignUpClick} name="Confirm" />
+          <MainButton onClick={handleConfirmClick} name="Confirm" />
         </div>
       </div>
     </div>

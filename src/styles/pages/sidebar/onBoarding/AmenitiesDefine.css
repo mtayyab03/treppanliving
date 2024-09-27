@@ -1,0 +1,242 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+}
+/* Container for the entire screen */
+
+/* Container for cards (flex wrap for responsive rows) */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Styling for individual cards */
+.card {
+  width: 14rem;
+  padding-bottom: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 8rem;
+}
+.card-image-am {
+  overflow: hidden;
+  width: 6rem;
+  height: 5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  justify-content: center;
+}
+.card-image-am img {
+  width: 100%;
+  height: 100%;
+}
+.card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Plus Card styling */
+.add-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #ddd;
+  color: var(--green-text);
+  font-size: 2rem;
+}
+.add-card-modal {
+  width: 6rem;
+  display: flex;
+  margin-left: 1rem;
+  justify-content: center;
+  border-radius: 0.3rem;
+  align-items: center;
+  border: 2px dashed #ddd;
+  color: var(--green-text);
+  font-size: 2rem;
+}
+
+.add-card .plus-icon {
+  font-size: 3rem;
+  color: var(--green-text);
+}
+
+/* Modal styles */
+.modal-overlayAD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalAD-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+.modalAD-header h4 {
+  text-decoration: underline;
+}
+.modalAD {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modalAD h2 {
+  margin-bottom: 20px;
+}
+
+.modalAD input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.modalAD button {
+  padding: 10px 20px;
+  background-color: var(--green-text);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-fieldACN {
+  width: 80%;
+  padding: 10px;
+  display: flex;
+  font-size: 16px;
+  border: 1.5px solid var(--green-text);
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+}
+.image-ameity-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem 0rem;
+}
+.amenity-modal-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+}
+.form-group-AD {
+  display: flex;
+  flex-direction: column;
+  width: 32.5%; /* Adjust width of form elements */
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 0.7rem;
+}
+.form-group-AD label {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.checkbox-modal {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.checkbox-modal label {
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  margin-left: 0.7rem;
+}
+.modal-datepicker {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.checkbox-modal input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--green-text);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.checkbox-modal input[type="checkbox"]:checked {
+  background-color: var(--green-text);
+}
+
+.checkbox-modal input[type="checkbox"]:checked::before {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start-date {
+  width: 49%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+.start-date input {
+  font-size: 16px;
+  border: 1.5px solid var(--green-text);
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+}
+.start-date label {
+  font-size: 0.9rem;
+}
+.end-date {
+  width: 49%;
+}
+.button-modal-amenity {
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  margin-top: 1rem;
+}

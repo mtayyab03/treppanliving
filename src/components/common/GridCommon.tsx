@@ -18,7 +18,7 @@ import {
   gridPageCountSelector,
 } from "@mui/x-data-grid";
 import "../../styles/components/dashboard/Grid.css";
-import FilterModal from "./FilterModal";
+import FilterModal from "../dashboard/FilterModal";
 import { GridFilterItem } from "@mui/x-data-grid";
 import MuiPagination from "@mui/material/Pagination";
 import Chip from "@mui/material/Chip";
@@ -44,12 +44,28 @@ interface Row {
   people: string;
   devices: string;
 }
+interface IndexedRow {
+  [key: string]: string | number;
+}
 
 interface FilterItem {
   columnField: string;
   operatorValue: string;
   value: string | number;
 }
+const CustomSearchField: React.FC<{
+  value: string;
+  onChange: (value: string) => void;
+}> = ({ value, onChange }) => {
+  return (
+    <input
+      type="text"
+      placeholder="Search..."
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  );
+};
 const columns: GridColDef[] = [
   {
     field: "firstName",
@@ -307,6 +323,7 @@ const Grid: React.FC = () => {
   const [columnOrder, setColumnOrder] = useState<string[]>(
     columns.map((column) => column.field)
   );
+
   const [appliedFilters, setAppliedFilters] = useState<string[]>([]);
   const [open, setOpen] = useState(false);
   const [filterValues, setFilterValues] = useState<GridFilterModel>({
@@ -317,9 +334,78 @@ const Grid: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [dropdownColumnOrder, setDropdownColumnOrder] =
     useState<string[]>(columnOrder);
+  const [filteredRows, setFilteredRows] = useState<Row[]>(rows);
+
+  const [columnSearchValues, setColumnSearchValues] = useState<{
+    [key: string]: string;
+  }>(
+    columns.reduce((acc, column) => {
+      acc[column.field] = "";
+      return acc;
+    }, {} as { [key: string]: string })
+  );
 
   const [page, setPage] = useState(0);
   const pageSize = 5;
+  const columnsWithSearch: GridColDef[] = columns.map((column) => ({
+    ...column,
+    renderHeader: (params) => (
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <span>{params.colDef.headerName}</span>
+        <input
+          type="text"
+          placeholder={`Search ${params.colDef.headerName}`}
+          value={columnSearchValues[column.field]}
+          onChange={(e) =>
+            handleColumnSearchChange(column.field, e.target.value)
+          }
+          style={{
+            marginTop: "5px",
+            padding: "2px 5px",
+            fontSize: "0.8rem",
+          }}
+        />
+      </div>
+    ),
+  }));
+
+  const handleSearchChange = (value: string) => {
+    setSearchValue(value);
+  };
+
+  const paginatedRows = filteredRows.slice(
+    page * pageSize,
+    (page + 1) * pageSize
+  );
+
+  const handleColumnSearchChange = (field: string, value: string) => {
+    setColumnSearchValues((prevValues) => ({
+      ...prevValues,
+      [field]: value,
+    }));
+
+    const newFilteredRows = rows.filter((row) => {
+      if (!isIndexedRow(row)) return false; // If the row is not an IndexedRow, skip filtering
+      return Object.keys(columnSearchValues).every((colField) => {
+        const searchValue =
+          colField === field ? value : columnSearchValues[colField];
+        return (
+          searchValue === "" ||
+          String(row[colField])
+            .toLowerCase()
+            .includes(searchValue.toLowerCase())
+        );
+      });
+    });
+
+    setFilteredRows(newFilteredRows);
+  };
+  function isIndexedRow(obj: any): obj is IndexedRow {
+    // Check if the object has string or number keys
+    return Object.keys(obj).every(
+      (key) => typeof obj[key] === "string" || typeof obj[key] === "number"
+    );
+  }
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) {
@@ -409,8 +495,6 @@ const Grid: React.FC = () => {
       ), // Assuming the filter format is "columnField operatorValue value"
     }));
   };
-
-  const paginatedRows = rows.slice(page * pageSize, (page + 1) * pageSize);
 
   return (
     <Box style={{ height: 400, width: "100%" }}>
@@ -604,9 +688,36 @@ const Grid: React.FC = () => {
           />
         </Box>
       </Modal>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          marginBottom: "10px",
+        }}
+      >
+        {columnsWithSearch.map((column) => (
+          <div key={column.field} style={{ marginRight: "10px" }}>
+            <input
+              type="text"
+              placeholder={`Search ${column.headerName}`}
+              value={columnSearchValues[column.field]}
+              onChange={(e) =>
+                handleColumnSearchChange(column.field, e.target.value)
+              }
+              style={{
+                fontSize: "11px",
+                padding: "5px 4px",
+                borderRadius: "20px",
+                border: "2px solid #7ec646", // Use consistent border color
+              }}
+            />
+          </div>
+        ))}
+      </div>
       <DataGrid
-        rows={paginatedRows}
-        columns={columns
+        rows={filteredRows.slice(page * pageSize, (page + 1) * pageSize)}
+        columns={columnsWithSearch
           .filter((column) => visibleColumns.includes(column.field))
           .sort(
             (a, b) =>

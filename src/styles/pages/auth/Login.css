@@ -61,7 +61,7 @@
   border-radius: 10px;
   width: 60%;
   box-sizing: border-box;
-  padding: 18px 15px;
+  padding: 13px 15px;
   background-color: var(--field-color);
 }
 .auth-main {

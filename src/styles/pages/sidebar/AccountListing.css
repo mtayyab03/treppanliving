@@ -1,0 +1,103 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+}
+.button {
+  background-color: var(--green-text); /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.account-header {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.account-grid {
+  display: grid;
+  margin-top: 3rem;
+  grid-template-columns: repeat(
+    6,
+    1fr
+  ); /* 6 columns, each taking equal width */
+  gap: 10px; /* Spacing between grid items */
+  padding: 10px; /* Padding around the grid */
+}
+
+.grid-header {
+  font-weight: bold;
+  background-color: #f4f4f4; /* Light background for header */
+  padding: 10px;
+  border: 2px solid var(--green-text);
+  grid-column: span 6; /* Span all columns */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Match the grid template columns */
+  border-radius: 0.7rem;
+}
+.grid-header div {
+  color: var(--green-text);
+  margin-left: 0.5rem;
+}
+.grid-container {
+  width: 237%;
+}
+
+.grid-row {
+  margin-top: 1rem;
+  width: 100%;
+  display: grid;
+  border-radius: 0.7rem;
+  background-color: #f3f3f3;
+  grid-template-columns: repeat(6, 1fr); /* Creates 6 equal columns */
+  border: 2px solid var(--green-text);
+  grid-column: span 6; /* Span all columns */
+  padding: 5px;
+  gap: 10px; /* Optional: Adds space between columns */
+  box-sizing: border-box; /* Includes padding and border in element's total width and height */
+}
+.grid-row div {
+  padding: 10px;
+}
+.more-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+
+.more-button:hover {
+  background-color: #0056b3;
+}
+.header-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .account-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+  }
+}

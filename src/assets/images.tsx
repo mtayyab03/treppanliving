@@ -7,6 +7,7 @@ import settingicon from "./images/settingicon.png";
 import passwordicon from "./images/passwordicon.png";
 import changepassimage from "./images/changepassimage.png";
 import plantseed from "./images/plantseed.png";
+import trepdash from "./images/trepdash.png";
 
 export {
   profileimg,
@@ -16,4 +17,5 @@ export {
   passwordicon,
   changepassimage,
   plantseed,
+  trepdash,
 };

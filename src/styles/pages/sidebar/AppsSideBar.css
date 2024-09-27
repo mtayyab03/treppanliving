@@ -1,0 +1,64 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+}
+.main-apps {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+.main-header-apps {
+  display: flex;
+  flex-direction: row;
+}
+.main-header-apps h4 {
+  font-size: 2.1rem;
+  color: var(--darkgrey-color);
+  margin-left: 1.5rem;
+}
+.sidebar-icon-apps {
+  color: var(--darkgrey-color);
+  width: 3.5rem;
+  height: 3.5rem;
+}
+/* AppsSideBar.css */
+
+.apps-sidebar-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow boxes to wrap to the next line */
+  margin: 10px; /* Optional margin */
+}
+
+.app-box {
+  border: 2px solid var(--green-text); /* Green border */
+  border-radius: 8px; /* Optional rounded corners */
+  width: calc(20% - 10px); /* Adjust width to fit 5 boxes in one row */
+  margin: 5px; /* Space between boxes */
+  text-align: center; /* Center text and icon */
+  padding: 30px; /* Padding inside each box */
+  transition: transform 0.2s; /* Add transition for hover effect */
+}
+
+.app-icon {
+  font-size: 3rem; /* Adjust icon size */
+  color: var(--green-text); /* Icon color */
+}
+
+.app-label {
+  margin-top: 5px; /* Space between icon and label */
+}
+
+/* Optional hover effect */
+.app-box:hover {
+  transform: scale(1.05); /* Slightly enlarge box on hover */
+}

@@ -1,0 +1,61 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+  --fade-white: #ebebeb;
+}
+/* Form container */
+.floor-define-container {
+  width: 100%;
+  padding: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column; /* Default layout for mobile */
+  margin-bottom: 20px;
+  align-items: center;
+}
+.contact-form-floor {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.buttons-floor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .contact-row {
+    flex-direction: row; /* Row layout for larger screens */
+    align-items: center;
+  }
+
+  .form-field {
+    margin-right: 10px;
+  }
+
+  .phone-number {
+    width: 70%;
+  }
+}

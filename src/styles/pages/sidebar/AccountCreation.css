@@ -1,0 +1,274 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+  --fade-white: #ebebeb;
+}
+.account-creation-main {
+  max-height: 100vh; /* Set maximum height to the viewport height */
+  overflow-y: auto; /* Allow vertical scrolling */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.account-creation-header {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-creation-header img {
+  display: flex;
+  position: absolute;
+  left: 1.5rem;
+}
+.account-creation-header h1 {
+  color: var(--green-text);
+  text-decoration: underline;
+}
+.trepdash-creation {
+  width: 15rem; /* Adjust size as needed */
+}
+.legat-text {
+  color: var(--darkgrey-color);
+  text-decoration: underline;
+  margin-top: 2rem;
+  font-weight: 500;
+}
+.company-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+textarea.input-field {
+  resize: none; /* Prevents resizing */
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--light-white); /* Placeholder color */
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+.custom-line {
+  border: 0; /* Remove default border */
+  height: 1px; /* Thickness of the line */
+  background-color: var(--light-white); /* Green color for the line */
+  margin: 5px 0; /* Spacing above and below the line */
+}
+/* ContactForm.css */
+.contact-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column; /* Default layout for mobile */
+  margin-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-fieldAC {
+  width: 98%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid var(--green-text);
+  border-radius: 0.6rem;
+  box-sizing: border-box;
+}
+
+.country-code-dropdown {
+  width: 23%;
+  border: none;
+  background-color: var(--fade-white);
+  margin-right: 1rem;
+  padding: 5px;
+  border-radius: 0.4rem;
+}
+
+.phone-number {
+  width: 65%;
+  border: none;
+}
+
+.phone-field-wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  border: 1.5px solid #4caf50; /* Green border */
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  padding: 7px;
+}
+
+.plus-button,
+.remove-button {
+  width: 3rem;
+  height: 3rem;
+  font-size: 18px;
+  border: none;
+  background-color: var(--green-text); /* Green background */
+  color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin-top: 1.3rem;
+}
+
+.remove-button {
+  margin-left: 0.5rem;
+  background-color: #f44336; /* Red background for removal */
+}
+
+.plus-button:hover,
+.remove-button:hover {
+  opacity: 0.8;
+}
+.upload-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.upload-container {
+  border: 2px dotted #4caf50; /* Dotted border with green color */
+  border-radius: 4px;
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.upload-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.general-remarks {
+  width: 100%;
+  border: 2px solid #4caf50; /* Solid border with green color */
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100px; /* Adjust height as needed */
+  resize: vertical; /* Allow resizing only vertically */
+}
+.remark-container {
+  width: 100%;
+}
+.upload-section-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Add this to your existing CSS file */
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  margin-top: 20px;
+}
+
+.save-button,
+.cancel-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; /* Space between buttons */
+}
+
+.save-button {
+  background-color: #4caf50; /* Green background for Save */
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red background for Cancel */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #e53935; /* Slightly darker red on hover */
+}
+.custom-file-upload {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px; /* Smaller text size */
+}
+.custom-file-upload span {
+  margin-top: 0.2rem;
+  font-size: 0.7rem; /* Adjust the font size */
+  color: #333; /* Optional: change the text color */
+}
+.custom-file-upload:hover {
+  border-color: #007bff;
+}
+
+.file-info {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: #333;
+}
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .contact-row {
+    flex-direction: row; /* Row layout for larger screens */
+    align-items: center;
+  }
+
+  .form-field {
+    margin-right: 10px;
+  }
+
+  .phone-number {
+    width: 70%;
+  }
+}

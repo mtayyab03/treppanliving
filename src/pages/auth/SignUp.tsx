@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/pages/auth/Login.css";
 
 import leaf from "../../assets/images/leaf.png";
@@ -14,7 +14,7 @@ const SignUp: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const navigate = useNavigate(); // Use useNavigate for programmatic navigation
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -54,7 +54,9 @@ const SignUp: React.FC = () => {
       return;
     }
     setErrorMessage("");
-    window.location.href = "/";
+
+    // Use navigate to move to the account creation page
+    navigate("/account-creation");
   };
 
   return (

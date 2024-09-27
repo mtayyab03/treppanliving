@@ -88,30 +88,10 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <div className="scrollNav">
-        {[
-          {
-            icon: <FaHome className="navbar-icon-scroll" />,
-            text: "Home",
-            name: "Home",
-          },
-          {
-            icon: <FaInfo className="navbar-icon-scroll" />,
-            text: "About",
-            name: "About",
-          },
-          {
-            icon: <FaServicestack className="navbar-icon-scroll" />,
-            text: "Services",
-            name: "Services",
-          },
-          {
-            icon: <FaPhone className="navbar-icon-scroll" />,
-            text: "Contact",
-            name: "Contact",
-          },
-        ].map(({ icon, text, name }) => renderNavbarItem(icon, text, name))}
-      </div>
+      <h3 className="nav-header-text">
+        Hi <span className="highlight-name">Jhon</span>, Welcome to Treppan
+        Living!
+      </h3>
       <div className="navFixed">
         <div className="navbar-item-fixed">
           <FaHome className="navbar-icon" />

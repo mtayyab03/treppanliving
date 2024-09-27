@@ -1,0 +1,102 @@
+:root {
+  --navbar-bg-color: #fff;
+  --darkgrey-color: #5f6265;
+  --navbar-icon-size: 24px;
+  --navbar-text-size: 14px;
+  --navbar-icon-margin-bottom: 5px;
+  --green-gradient: linear-gradient(15deg, #7ec646, #4e8026);
+  --green-text: #7ec646;
+  --bg-color: #fdfdfd;
+  --field-color: #f3f3f3;
+  --black-color: #1e2023;
+  --blue-color: #4285f4;
+  --mid-grey: #88898a;
+  --light-white: #b6b6b6;
+  --fade-white: #ebebeb;
+}
+/* Form container */
+.form-container {
+  width: 100%;
+  padding: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Form header */
+.project-heading {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form row */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Full-width row for textarea */
+.full-width {
+  width: 100%;
+  display: block;
+}
+.input-fieldPro {
+  width: 98%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1.5px solid var(--green-text);
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+}
+/* Form group for label and input/select */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 32.5%; /* Adjust width of form elements */
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 0.7rem;
+}
+
+/* Label styling */
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Input field styling */
+.form-input,
+.form-select,
+.form-textarea {
+  padding: 10px;
+  font-size: 1rem;
+  color: #000;
+  background-color: #fff;
+  border: 1.5px solid var(--green-text);
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  outline: none;
+  width: 100%;
+}
+
+/* Textarea styling */
+.form-textarea {
+  height: 80px;
+  resize: none; /* Prevent resizing */
+}
+
+/* Dropdown styling */
+.form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Additional styling for focus state */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: darkgreen;
+}
