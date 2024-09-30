@@ -41,8 +41,8 @@
 }
 .card-image-am {
   overflow: hidden;
-  width: 6rem;
-  height: 5rem;
+  width: 6.5rem;
+  height: 6.5rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
@@ -72,6 +72,7 @@
 .add-card-modal {
   width: 6rem;
   display: flex;
+  height: 6rem;
   margin-left: 1rem;
   justify-content: center;
   border-radius: 0.3rem;
@@ -239,4 +240,55 @@
   justify-content: flex-end;
   display: flex;
   margin-top: 1rem;
+}
+.image-row {
+  display: flex;
+  gap: 10px;
+}
+
+.card-image-am {
+  position: relative;
+}
+
+.card-image-am img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.add-card-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+}
+
+.plus-icon {
+  font-size: 24px;
+  color: #4caf50;
+}
+
+.upload-label {
+  cursor: pointer;
+}
+
+.remove-image-btn {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
 }

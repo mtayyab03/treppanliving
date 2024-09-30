@@ -23,12 +23,23 @@ const apps = [
   { icon: <FaHandshakeSimple />, label: "Vendor Management" },
   { icon: <AiFillProject />, label: "Project Management" },
   { icon: <PiDevicesFill />, label: "Amenities Management" },
-  { icon: <FaTrophy />, label: "Reward Management" },
+  {
+    icon: <FaTrophy />,
+    label: "Reward Management",
+    route: "/dashboard/rewardweightage",
+  },
   { icon: <BsBuildingFillGear />, label: "Property Management" },
   // Add more apps if needed
 ];
 
 const AppsSideBar = () => {
+  const navigate = useNavigate(); // Initialize the navigate hook
+
+  const handleAppClick = (route: string) => {
+    if (route) {
+      navigate(route); // Navigate to the specified route
+    }
+  };
   return (
     <div className="main-apps">
       <div className="main-header-apps">
@@ -38,7 +49,11 @@ const AppsSideBar = () => {
 
       <div className="apps-sidebar-container">
         {apps.map((app, index) => (
-          <div className="app-box" key={index}>
+          <div
+            className="app-box"
+            key={index}
+            onClick={() => handleAppClick(app.route || "")}
+          >
             <div className="app-icon">{app.icon}</div>
             <p className="app-label">{app.label}</p>
           </div>

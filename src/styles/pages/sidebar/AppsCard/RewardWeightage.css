@@ -1,0 +1,11 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 40%; /* Adjust width of form elements */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.form-groupRW label {
+  font-size: 1rem;
+  color: #333;
+}

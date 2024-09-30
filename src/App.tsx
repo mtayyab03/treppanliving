@@ -12,6 +12,7 @@ import AccountCreation from "./components/dashboard/SidebarScreens/AccountCreati
 // sidebar
 import AppsSideBar from "./pages/dashboard/AppsSideBar";
 import OnBoarding from "./pages/dashboard/Sidebar/OnBoarding";
+import RewardWeightage from "./pages/dashboard/Sidebar/AppsCard/RewarManagemet/RewardWeightage";
 
 // auth
 import Login from "./pages/auth/Login";
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           <Route path="maincharts" element={<MainCharts />} />
           <Route path="usermanagement" element={<UserManagement />} />
           <Route path="accountlisting" element={<AccountListing />} />
+          <Route path="rewardweightage" element={<RewardWeightage />} />
           {/* Add more routes as needed */}
         </Route>
       </Routes>

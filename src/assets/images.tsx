@@ -8,6 +8,8 @@ import passwordicon from "./images/passwordicon.png";
 import changepassimage from "./images/changepassimage.png";
 import plantseed from "./images/plantseed.png";
 import trepdash from "./images/trepdash.png";
+import profile2 from "./images/profile2.png";
+import profile3 from "./images/profile3.png";
 
 export {
   profileimg,
@@ -18,4 +20,6 @@ export {
   changepassimage,
   plantseed,
   trepdash,
+  profile2,
+  profile3,
 };

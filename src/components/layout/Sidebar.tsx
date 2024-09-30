@@ -30,6 +30,10 @@ const Sidebar: React.FC = () => {
     setActiveMenu("onBoarding"); // Update active menu state
     navigate("/dashboard/onBoarding"); // Navigate to the desired route
   };
+  const handleDashboardClick = () => {
+    setActiveMenu("dashboard"); // Update active menu state
+    navigate("/dashboard"); // Navigate to the desired route
+  };
   return (
     <div className="sidebar">
       <img src={trepdash} alt="modalimage" className="trepdash" />
@@ -61,6 +65,7 @@ const Sidebar: React.FC = () => {
           <div
             onClick={() => {
               toggleDropdown("dashboard");
+              handleDashboardClick(); // Call the handleAppsClick function
             }}
             className={`sidebar-link ${
               activeMenu === "dashboard" ? "active" : ""

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../../styles/pages/sidebar/onBoarding/onBoardingProject.css";
+import { useNavigate } from "react-router-dom";
+import { FaCheckCircle } from "react-icons/fa";
 
 // screens
 import ProjectDefine from "./onBoarding/ProjectDefine";
@@ -8,22 +10,53 @@ import UnitDefine from "./onBoarding/UnitDefine";
 import AmenitiesDefine from "./onBoarding/AmenitiesDefine";
 import UsersDefine from "./onBoarding/UsersDefine";
 
+// Modal Component for Success Message
+const SuccessModal = ({ isOpen }: any) => {
+  const navigate = useNavigate(); // Use navigate hook
+
+  const handleNavigateToDashboard = () => {
+    navigate("/dashboard"); // Navigate to the dashboard route
+  };
+  return (
+    isOpen && (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <FaCheckCircle color="#7ec646" size={80} />
+          <h2>Success!</h2>
+          <p>You have successfully completed the onboarding process.</p>
+          <button onClick={handleNavigateToDashboard}>Go to Dashboard</button>
+        </div>
+      </div>
+    )
+  );
+};
+
 const steps = [1, 2, 3, 4, 5];
 const stepNames = ["Project", "Floor", "Unit", "Amenity", "Users"];
 
 const OnBoarding = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal
 
   const handleNext = () => {
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1);
+    } else if (currentStep === steps.length) {
+      // Open success modal if the last step is reached
+      setIsModalOpen(true);
     }
   };
+
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
     }
   };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   // Define the content for each step
   const renderStepContent = (step: any) => {
     switch (step) {
@@ -41,6 +74,7 @@ const OnBoarding = () => {
         return <div>Unknown Step</div>;
     }
   };
+
   return (
     <div className="onBoarding-main">
       <div className="progress-container">
@@ -72,10 +106,16 @@ const OnBoarding = () => {
         <button onClick={handleBack} disabled={currentStep === 1}>
           Back
         </button>
-        <button onClick={handleNext} disabled={currentStep === steps.length}>
-          Next
+        <button
+          onClick={handleNext}
+          disabled={currentStep === steps.length + 1}
+        >
+          {currentStep === steps.length ? "Finish" : "Next"}
         </button>
       </div>
+
+      {/* Success Modal */}
+      <SuccessModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

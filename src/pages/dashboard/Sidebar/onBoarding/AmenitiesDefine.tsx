@@ -22,6 +22,23 @@ const AmenitiesDefine = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const [images, setImages] = useState<File[]>([]);
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newImage = e.target.files?.[0];
+    if (newImage && images.length < 5) {
+      setImages((prevImages) => [...prevImages, newImage]);
+    }
+  };
+
+  const triggerFileUpload = () => {
+    document.getElementById("upload")?.click();
+  };
+
+  const handleRemoveImage = (index: number) => {
+    const updatedImages = images.filter((_, i) => i !== index);
+    setImages(updatedImages);
+  };
 
   const addAmenity = () => {
     if (newAmenity.trim() !== "") {
@@ -77,16 +94,36 @@ const AmenitiesDefine = () => {
             <div className="image-ameity-container">
               {/* Row for images */}
               <div className="image-row">
-                {/* Here you can map over your images and display them */}
-                <div className="card-image-am">
-                  <img src={gym} alt="Amenity" />
-                </div>
+                {/* Display the uploaded images */}
+                {images.map((image, index) => (
+                  <div className="card-image-am" key={index}>
+                    <img
+                      src={URL.createObjectURL(image)}
+                      alt={`Amenity ${index}`}
+                    />
+                    <button
+                      className="remove-image-btn"
+                      onClick={() => handleRemoveImage(index)}
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
 
-                {/* Add more images as needed */}
-              </div>
-              <div className="add-card-modal">
-                <div className="plus-icon">+</div>
-              </div>
+              {/* Plus card to trigger the image upload */}
+              {images.length < 5 && (
+                <div className="add-card-modal" onClick={triggerFileUpload}>
+                  <div className="plus-icon">+</div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    id="upload"
+                    onChange={handleImageUpload}
+                  />
+                </div>
+              )}
             </div>
             {/* Text field */}
             <div className="amenity-modal-row">
